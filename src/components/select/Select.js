@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const DropDownContainer = styled('div')`
   width: 194px;
 `;
+
 const DropDownHeader = styled('div')`
   font-size: 14px;
   line-height: 17px;
@@ -13,33 +14,44 @@ const DropDownHeader = styled('div')`
   padding: 13px 55px 14px 17px;
   border: 1px solid #DEDFE2;
   border-radius: 6px;
+  cursor: pointer;
 `;
-const DropDownListContainer = styled('div')``;
+
+const DropDownListContainer = styled('div')`
+  padding: 19px 6px 19px 0;
+  box-shadow: 0 2px 2px rgba(12, 20, 39, .1);
+  border-radius: 8px;
+`;
+
 const DropDownList = styled('ul')`
   margin: 0;
   padding: 0;
   overflow-y: scroll;
   list-style: none;
   height: 291px;
+  
   &::-webkit-scrollbar {
     -webkit-appearance: none;
-    background-color: #8697A8;
+    background-color: #E8EAF0;
     border-radius: 2.5px;
+    width: 5px;
   }
   &::-webkit-scrollbar-track {
     border-radius: 2.5px;
-    width: 5px;
-    background-color: #E8EAF0;
   }
   &::-webkit-scrollbar-thumb {
+    height: 101px;
     border-radius: 2.5px;
+    background-color: #8697A8;
   }
 `;
+
 const ListItem = styled('li')`
   font-size: 14px;
   line-height: 17px;
   font-weight: normal;
-  padding: 17px;  
+  padding: 17px;
+  cursor: pointer;
 `;
 
 const options = ['January, 2021',
@@ -55,7 +67,6 @@ const options = ['January, 2021',
     'November, 2021',
     'December, 2021'
 ]
-
 
 function Select() {
     const [isOpen, setIsOpen] = useState(false);
@@ -73,17 +84,17 @@ function Select() {
             <DropDownHeader onClick={toggling}>
                 {selectedOption|| "January, 2021"}
             </DropDownHeader>
-            <DropDownListContainer>
-                {isOpen && (
-                    <DropDownList>
-                        {options.map(option => (
-                            <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                                {option}
-                            </ListItem>
-                        ))}
-                    </DropDownList>
-                )}
-            </DropDownListContainer>
+            {isOpen && (
+                <DropDownListContainer>
+                        <DropDownList>
+                            {options.map(option => (
+                                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
+                                    {option}
+                                </ListItem>
+                            ))}
+                        </DropDownList>
+                </DropDownListContainer>
+            )}
         </DropDownContainer>
     )
 }
