@@ -1,6 +1,4 @@
 import {useState} from "react";
-import './Select.scss';
-
 import styled from 'styled-components';
 
 const DropDownContainer = styled('div')`
@@ -36,9 +34,11 @@ const DropDownList = styled('ul')`
     border-radius: 2.5px;
     width: 5px;
   }
+  
   &::-webkit-scrollbar-track {
     border-radius: 2.5px;
   }
+  
   &::-webkit-scrollbar-thumb {
     height: 101px;
     border-radius: 2.5px;
