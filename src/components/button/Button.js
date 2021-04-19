@@ -1,4 +1,3 @@
-import './Button.scss'
 import styled from 'styled-components';
 
 const Btn = styled('button')`
@@ -15,5 +14,4 @@ export default function Button() {
     return (
         <Btn>Sign out</Btn>
     )
-
 }
